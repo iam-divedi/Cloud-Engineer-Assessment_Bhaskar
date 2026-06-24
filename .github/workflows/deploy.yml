@@ -1,0 +1,31 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            cd /home/ubuntu
+            if [ ! -d cloud-engineer-assessment ]; then
+              git clone https://github.com/iam-divedi/Cloud-Engineer-Assessment_Bhaskar.git cloud-engineer-assessment
+            fi
+
+            cd cloud-engineer-assessment
+            git pull origin main
+
+            sudo systemctl restart nginx

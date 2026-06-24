@@ -1,0 +1,17 @@
+# Terraform local files ignore
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Python cache ignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs ignore
+*.log
+.terraform/
+.terraform/
+*.pem
+*:Zone.Identifier

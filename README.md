@@ -5,6 +5,7 @@
 This project demonstrates the deployment of a Python Flask application on AWS using Terraform for Infrastructure as Code (IaC) and GitHub Actions for CI/CD automation.
 
 The application is hosted on an Amazon EC2 instance and is publicly accessible over HTTP.
+**Kindly find the attached snapshots for your reference**
 
 **Application URL:**  
 http://13.201.132.192
